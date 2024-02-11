@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Sweety</title>
+  <!-- Google Fonts - Great Vibes -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background: linear-gradient(120deg, #f6d365, #fda085);
+      font-family: 'Great Vibes', cursive;
+    }
+    .container {
+      margin-top: 50px;
+      text-align: center;
+    }
+    h1 {
+      color: #fff;
+      font-size: 4rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ffef96;
+      border-radius: 50%;
+      animation: confetti-fall 3s linear infinite;
+    }
+    @keyframes confetti-fall {
+      0% {
+        transform: translateY(-100vh) rotateZ(360deg);
+      }
+      100% {
+        transform: translateY(100vh) rotateZ(360deg);
+      }
+    }
+    .balloon {
+      position: absolute;
+      width: 50px;
+      height: 80px;
+      background: linear-gradient(120deg, #ff7e5f, #feb47b);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      animation: balloon-rise 10s linear infinite;
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+    }
+    @keyframes balloon-rise {
+      0% {
+        transform: translateY(100vh) rotateZ(10deg);
+      }
+      100% {
+        transform: translateY(-100vh) rotateZ(10deg);
+      }
+    }
+    .star {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: #fff;
+      border-radius: 50%;
+      animation: star-twinkle 2s ease-in-out infinite alternate;
+    }
+    @keyframes star-twinkle {
+      0% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: scale(1.2);
+        opacity: 0.2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 Happy Birthday, Sweety! 🎂</h1>
+    <img src="mobile-legends-bang-3840x2160-14128.jpg" alt="Odette celebrating birthday" style="border-radius: 20px;max-width: 100%; height: auto; margin-top: 20px;">
+    <div id="confetti-container"></div>
+    <div id="balloon-container"></div>
+    <div id="star-container"></div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <!-- Custom JavaScript for confetti, balloon, and star effects -->
+  <script>
+    // Function to create confetti effect
+    function createConfetti() {
+      const confettiContainer = document.getElementById('confetti-container');
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = `${Math.random() * 100}%`;
+        confetti.style.animationDelay = `${Math.random() * 3}s`;
+        confettiContainer.appendChild(confetti);
+      }
+    }
+    // Function to create balloon effect
+    function createBalloons() {
+      const balloonContainer = document.getElementById('balloon-container');
+      for (let i = 0; i < 5; i++) {
+        const balloon = document.createElement('div');
+        balloon.classList.add('balloon');
+        balloon.style.left = `${Math.random() * 100}%`;
+        balloon.style.animationDelay = `${Math.random() * 10}s`;
+        balloonContainer.appendChild(balloon);
+      }
+    }
+    // Function to create star effect
+    function createStars() {
+      const starContainer = document.getElementById('star-container');
+      for (let i = 0; i < 50; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.animationDelay = `${Math.random() * 5}s`;
+        starContainer.appendChild(star);
+      }
+    }
+    // Execute confetti, balloon, and star creation when the page loads
+    window.onload = function() {
+      createConfetti();
+      createBalloons();
+      createStars();
+    };
+  </script>
+</body>
+</html>
